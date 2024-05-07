@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:proapi/Model/model.dart';
 import 'package:proapi/Services/servuces.dart';
+import 'package:proapi/Views/Post.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,17 +18,17 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    final GetViewMode = Provider.of<Getapi>(context);
+    final GetViewMode = Provider.of<ServiceApi>(context);
 
     //print(authViewMode.getUserApi());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Get Api Using Provider'),
+        title: Text('User List'),
       ),
       body: Column(
         children: [
-          Consumer<Getapi>(builder: (context, value, child) {
+          Consumer<ServiceApi>(builder: (context, value, child) {
             return
                 //  Text(value.getUserApi().toString());
                 Expanded(
@@ -38,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                     return CircularProgressIndicator();
                   } else {
                     return ListView.builder(
-                        itemCount: Getapi.userList.length,
+                        itemCount: ServiceApi.userList.length,
                         itemBuilder: (context, index) {
                           return Card(
                             child: Padding(
@@ -71,7 +72,14 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             );
-          })
+          }),
+          ElevatedButton(onPressed: (){
+Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => PostScreen()),
+  );
+          }, child: Text('Title & Body Api'))
+        
 
           //  Text()
           // Expanded(
