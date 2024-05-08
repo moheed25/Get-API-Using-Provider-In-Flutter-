@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:proapi/add_remove/new_screen.dart';
 import 'package:proapi/add_remove/notifier.dart';
 import 'package:provider/provider.dart';
+import 'package:badges/badges.dart' as badges;
 
 class MyItemsList extends StatelessWidget {
   const MyItemsList({super.key});
@@ -53,7 +54,17 @@ class MyItemsList extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => New()),
                 );
               },
-              child: Text('Next'))
+              child: Text('Next')),
+          badges.Badge(
+            showBadge: fav.isEmpty ? false : true,
+            badgeAnimation: badges.BadgeAnimation.fade(
+                animationDuration: Duration(milliseconds: 500)),
+            badgeContent: Text(
+              fav.length.toString(),
+              style: TextStyle(color: Colors.white),
+            ),
+            child: Icon(Icons.shop),
+          )
         ],
       ),
     );
