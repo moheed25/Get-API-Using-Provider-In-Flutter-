@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:proapi/HomePage.dart';
 import 'package:proapi/Services/servuces.dart';
+import 'package:proapi/add_remove/item_list.dart';
+import 'package:proapi/add_remove/notifier.dart';
 import 'package:proapi/get_provider/TodoProvider/todo_provider.dart';
 import 'package:proapi/get_provider/TodoView/todo_view.dart';
 import 'package:provider/provider.dart';
@@ -23,13 +25,16 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => ServiceApi(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => ItemProvider(),
+        ),
       ],
       child: MaterialApp(
           title: 'Flutter Demo',
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: TodoView()
+          home: MyItemsList()
           // initialRoute: RoutesName.splash,
           // onGenerateRoute: Routes.generateRoute,
           ),
