@@ -59,6 +59,7 @@ class MyItemsList extends StatelessWidget {
             showBadge: fav.isEmpty ? false : true,
             badgeAnimation: badges.BadgeAnimation.fade(
                 animationDuration: Duration(milliseconds: 500)),
+                
             badgeContent: Text(
               fav.length.toString(),
               style: TextStyle(color: Colors.white),

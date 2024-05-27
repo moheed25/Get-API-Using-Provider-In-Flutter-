@@ -60,7 +60,7 @@ class New extends StatelessWidget {
                                         Icons.remove,
                                         color: Colors.grey,
                                       )),
-                                  title: Text(fav.length.toString()),
+                                  title: Text(index.toString()),
                                   trailing: Icon(Icons.favorite_outline,
                                       color: Colors.red)),
                             ),

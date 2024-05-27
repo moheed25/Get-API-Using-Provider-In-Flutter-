@@ -16,7 +16,7 @@ class TodoView extends StatelessWidget {
         if (notifier.loading) {
           return const Center(child: CircularProgressIndicator());
         } else if (notifier.todo.isEmpty) {
-          return const Center(child: Text("No Todo"));
+          return const Center(child: Text("No Todo")); 
         } else {
           return ListView.builder(
               itemCount: notifier.todo.length,

@@ -16,5 +16,6 @@ class ItemProvider extends ChangeNotifier {
   deleteAllList() {
     fav_List.clear();
     notifyListeners();
+    
   }
 }
