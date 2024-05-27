@@ -12,4 +12,9 @@ class ItemProvider extends ChangeNotifier {
     fav_List.remove(index);
     notifyListeners();
   }
+
+  deleteAllList() {
+    fav_List.clear();
+    notifyListeners();
+  }
 }

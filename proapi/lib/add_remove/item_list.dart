@@ -15,7 +15,7 @@ class MyItemsList extends StatelessWidget {
       body: Column(
         children: [
           ListView.builder(
-              itemCount: 10,
+              itemCount: 5,
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 return Padding(
@@ -28,7 +28,7 @@ class MyItemsList extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: ListTile(
-                      title: Text("Hello"),
+                      title: Text("$index"),
                       trailing: IconButton(
                           onPressed: () {
                             if (!fav.contains(index)) {

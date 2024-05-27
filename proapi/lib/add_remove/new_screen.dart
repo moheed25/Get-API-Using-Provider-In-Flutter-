@@ -17,6 +17,16 @@ class New extends StatelessWidget {
                 Navigator.pop(context);
               },
               icon: Icon(Icons.arrow_back)),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  context.read<ItemProvider>().deleteAllList();
+                },
+                icon: Icon(
+                  Icons.remove,
+                  color: Colors.grey,
+                ))
+          ],
         ),
         body: Column(
           children: [
@@ -40,6 +50,16 @@ class New extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: ListTile(
+                                  leading: IconButton(
+                                      onPressed: () {
+                                        context
+                                            .read<ItemProvider>()
+                                            .removeTolist(index);
+                                      },
+                                      icon: Icon(
+                                        Icons.remove,
+                                        color: Colors.grey,
+                                      )),
                                   title: Text(fav.length.toString()),
                                   trailing: Icon(Icons.favorite_outline,
                                       color: Colors.red)),
